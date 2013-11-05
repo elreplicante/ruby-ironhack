@@ -23,7 +23,6 @@ class Movie
         result
     end
 
-#todo
     def self.get_genre_count movies
         result = {}
         movies.each { |movie| result[movie.genre] = movies.count }
