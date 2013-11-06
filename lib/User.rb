@@ -1,8 +1,10 @@
 class User
-    attr_accessor :comments
+    attr_accessor :comments, :favorite_movies
+
 
     def initialize
         @comments = []
+        @favorite_movies = []
     end
     def new_comment title, comment
         user_comment = {}
@@ -12,5 +14,9 @@ class User
     end
     def get_comments 
         @comments
+    end
+
+    def favorite_a_movie movie_title
+        @favorite_movies << movie_title
     end
 end
