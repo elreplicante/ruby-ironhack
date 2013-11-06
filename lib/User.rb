@@ -27,6 +27,22 @@ class User
         end
     end
 
+    
+
+    def proximity *users
+        if users.length == 1
+            calculate_proximity(users[0])
+        else
+            if calculate_proximity(users[0]) == 0 && calculate_proximity(users[1]) == 0
+             if users[0].proximity(users[1]) == 10
+               return 1
+            end
+          end
+        end    
+    end
+
+    private
+
     def calculate_proximity user
         factor = 10
         @favorite_movies.each do |movie|
@@ -36,5 +52,4 @@ class User
         end
         factor
     end
-
 end

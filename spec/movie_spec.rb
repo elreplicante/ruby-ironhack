@@ -37,18 +37,18 @@ describe "When a movie is shown" do
   info = movie.show_info
 
   it "contains the title" do    
-    expect(info["Title"]).to eq "Spartacus"
+    expect(info[:title]).to eq "Spartacus"
   end
 
   it "contains the genre" do
-    expect(info["Genre"]).to eq "Action"
+    expect(info[:genre]).to eq "Action"
   end
 
   it "containts the year" do
-    expect(info["Year"]).to eq 1960
+    expect(info[:year]).to eq 1960
   end
   
   it "contains comment" do
-    expect(info["Comments"]).to eq ["This is a comment"]
+    expect(info[:comments]).to eq ["This is a comment"]
   end
 end

@@ -22,11 +22,11 @@ class Movie
 
     def show_info
         movie_info = {
-        "Title" => @title,
-        "Genre" => @genre,
-        "Year" => @year,
-        "Comments" => @comments
-    }
+            :title => @title,
+            :genre => @genre,
+            :year => @year,
+            :comments => @comments
+        }
         movie_info
     end
 end
