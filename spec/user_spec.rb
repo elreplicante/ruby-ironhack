@@ -2,6 +2,7 @@ require "rspec"
 require_relative '../lib/User.rb'
 
 user = User.new
+user.favorite_a_movie("Spartacus")
 comments = [{
         :title => "Spartacus",
         :comment => "Awesome movie!"
@@ -23,7 +24,7 @@ end
 
 describe "When a user favorites a movie" do
   it "the movie is included in the favorites list" do
-    user.favorite_a_movie("Spartacus")
+    
     expect(user.favorite_movies).to include "Spartacus"
   end
 
@@ -33,10 +34,18 @@ describe "When a user favorites a movie" do
   end
 end
 
-describe "When two users have the same favorite" do
-  it "they have proximity factor 0" do
+describe "When calculating proximity between users" do
+  it "if two users have the same favorited movie they have proximity factor 0" do
     user_prox_zero = User.new
     user_prox_zero.favorite_a_movie("Spartacus")
-    expect(user.calculate_proximity(user)).to eq 0
+    expect(user.calculate_proximity(user_prox_zero)).to eq 0
+    expect(user_prox_zero.calculate_proximity(user)).to eq 0
   end
+
+  it "if two users don't have the same favorited movie they have proximity factor 10" do
+    user_no_prox = User.new
+    expect(user.calculate_proximity(user_no_prox)).to eq 10
+    expect(user_no_prox.calculate_proximity(user)).to eq 10
+  end
+    
 end

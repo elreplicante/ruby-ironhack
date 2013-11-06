@@ -28,9 +28,9 @@ class User
     end
 
     def calculate_proximity user
-        factor = 1
+        factor = 10
         @favorite_movies.each do |movie|
-            if user.favorite_movies.include? movie                
+            if user.favorite_movies.include? movie   
                 factor = 0
             end
         end
