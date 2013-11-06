@@ -5,22 +5,22 @@ require_relative '../lib/Movie.rb'
 
 
 describe "When adding comments to a movie" do
-    movie = Movie.new "Spartacus", "Action", 1960
+  movie = Movie.new "Spartacus", "Action", 1960
 
-    before(:each) do
-      movie.delete_comments
-    end
+  before(:each) do
+    movie.delete_comments
+  end
 
-    it "shows two comments when another comment is added" do
-        movie.add_comment "This is a comment", "This is another comment"
-        comments =  ["This is a comment", "This is another comment"] 
-        expect(movie.get_comments).to eq comments
-    end
+  it "shows two comments when another comment is added" do
+    movie.add_comment "This is a comment", "This is another comment"
+    comments =  ["This is a comment", "This is another comment"] 
+    expect(movie.get_comments).to eq comments
+  end
 
-    it "shows one comment when one comment is added" do
-        movie.add_comment "This is a comment"
-        comments =  ["This is a comment"] 
-        expect(movie.get_comments).to eq comments
+  it "shows one comment when one comment is added" do
+    movie.add_comment "This is a comment"
+    comments =  ["This is a comment"] 
+    expect(movie.get_comments).to eq comments
   end
 
   it "shows three comments if a third comment is added" do
@@ -31,10 +31,10 @@ describe "When adding comments to a movie" do
 end
 
 describe "When a movie is shown" do
-    movie = Movie.new "Spartacus", "Action", 1960
+  movie = Movie.new "Spartacus", "Action", 1960
 
-    movie.add_comment  "This is a comment"
-    info = movie.show_info
+  movie.add_comment  "This is a comment"
+  info = movie.show_info
 
   it "contains the title" do    
     expect(info["Title"]).to eq "Spartacus"
@@ -47,6 +47,7 @@ describe "When a movie is shown" do
   it "containts the year" do
     expect(info["Year"]).to eq 1960
   end
+  
   it "contains comment" do
     expect(info["Comments"]).to eq ["This is a comment"]
   end
